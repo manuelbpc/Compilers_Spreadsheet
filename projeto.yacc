@@ -58,13 +58,13 @@ lista:	cmd '\n'
 			{ 	
 				matriz[coluna][linha].numero = $1;
 			    matriz[coluna][linha].tipo = TIPO_FORM;
-				bombado();
+				postfixToInfix();
 			}
 	| 
 		lista arit '\n'
 			{ 	matriz[coluna][linha].numero = $2;
 			    matriz[coluna][linha].tipo = TIPO_FORM;
-				bombado();
+				postfixToInfix();
 			}				
 	;
 
@@ -363,7 +363,7 @@ int imprimir() {
 	}
 }
 
-int bombado(){
+int postfixToInfix(){
 	
 				char ** res = NULL;
 				char * p = strtok (userInput, " ");
